@@ -1,0 +1,28 @@
+.nav-name {
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+.nav-name a {
+    text-decoration: none;
+    color: white;
+}
+
+.navbar-anchor a:hover {
+    text-decoration: none;
+}
+
+.login-nav {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+.signup-nav {
+    color: white;
+    text-decoration: none;
+    border: 2px solid white;
+    border-radius: 4px;
+    margin-right: 20px;
+    padding: 3px;
+}

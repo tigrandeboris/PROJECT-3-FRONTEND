@@ -1,0 +1,32 @@
+
+.home-page {
+    background: url("../../../src/images/background.png") center center no-repeat;
+    background-size: contain;
+    height: 700px;
+}
+
+.home-page-body {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 80px;
+}
+
+.home-page-img img {
+    height: 450px;
+
+}
+
+.home-page-info {
+    text-align: center;
+}
+
+.home-page-info h1{
+   font-size: 3rem;
+text-shadow: 1px 1px 1px lightgrey;
+}
+
+.home-page-button {
+    margin: 15px;
+    width: 120px;
+}
