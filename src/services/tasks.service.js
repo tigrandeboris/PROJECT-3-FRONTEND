@@ -3,7 +3,7 @@ import axios from 'axios';
 export default class TaskService{
   constructor(){
     this.instance = axios.create({
-      baseURL: `${process.env.REACT_APP_API_URL}/projects`,
+      baseURL: `${process.env.REACT_APP_API_URL}/tasks`,
       withCredentials: true
     })
   }

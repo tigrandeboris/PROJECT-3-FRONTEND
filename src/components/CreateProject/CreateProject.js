@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import TaskService from '../../services/tasks.service';
+import ProjectService from '../../services/projects.service';
 
 const validators = {
   name: (value) => {
@@ -10,12 +10,11 @@ const validators = {
     return message;
   }
 }
-export default class CreateTask extends Component {
+export default class CreateProject extends Component {
   constructor(props){
     super(props);
     this.state = {
       fields: {
-        project_id: this.props.project_id,
         name: ""
       }, 
       errors: {
@@ -23,21 +22,20 @@ export default class CreateTask extends Component {
       }
     }
 
-    this.taskService = new TaskService();
+    this.projectService = new ProjectService();
   }
 
   handleSubmit(event){
     event.preventDefault();
     console.log(this.state.fields)
 
-    this.taskService.create(this.state.fields)
+    this.projectService.create(this.state.fields)
     .then(() => {
       console.log('Created');
 
       this.setState({
         fields: {
-          name: "",
-          project_id: this.props.project_id,
+          name: ""
         }, 
         errors: {
           name: null
@@ -70,7 +68,7 @@ export default class CreateTask extends Component {
         <input type="text" value={fields.name} onChange={(e) => this.handleChange(e)} name="name" />
         
         <button type="submit">
-          Add task
+          Add Project
         </button>
       </form>
     )

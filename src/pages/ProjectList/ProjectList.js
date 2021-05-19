@@ -1,61 +1,52 @@
 import React, { Component } from 'react'
 import CreateTask from '../../components/CreateTask/CreateTask';
-import Task from '../../components/Task/Task';
 import { withAuth } from '../../context/auth.context';
-import TaskService from '../../services/tasks.service'
-import Navbar from '../../components/Navbar/Navbar';
+import ProjectService from '../../services/projects.service';
+import Project from '../../components/Project/Project';
+import CreateProject from '../../components/CreateProject/CreateProject';
 
 
 class ProjectList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      tasks: []
+      projects: []
     }
-    this.taskService = new TaskService();
-    // this.refreshState = this.refreshState.bind(this);
-  }
-
-  refreshState() {
-    this.taskService.get()
-      .then(response => {
-        console.log(response.data);
-        this.setState({ tasks: response.data });
-      })
-      .catch(err => console.error(err))
-  }
-
-  componentDidMount() {
-    this.refreshState();
-  }
-
-  displayTasks(){
-    const { tasks } = this.state;
-    return tasks.map(task => {
-      return (
-        <Task refreshState={() => this.refreshState()} key={task.id} {...task}/>
-      )
-    })
+    this.projectService = new ProjectService();
   }
 
   handleLogout = () => {
     this.props.logout();
   }
 
+  refreshState() {
+    this.projectService.get().then(response => {
+      this.setState({projects: response.data});
+    }).catch(err => console.error(err))
+  }
+
+  componentDidMount() {
+    this.refreshState();
+  }
+
   render() {
-    const { tasks } = this.state;
+    const {projects} = this.state;
     return (
-      <div>
-        <Navbar />
-        <div onClick={this.handleLogout}>Logout</div>
-        <div className="card">
-          {
-            this.displayTasks()
-          }
-          <CreateTask refreshState={() => this.refreshState()} />
+        <div>
+          <button className='btn btn-danger' onClick={this.handleLogout}>Logout</button>
+          <CreateProject refreshState={() => this.refreshState()} />
+          <div id="accordion">
+            {projects.map((project) => {
+                project.refreshState = () => this.refreshState();
+                return (
+                    <Project {...project} key={project.id}/>
+                );
+            }
+          )}
+          </div>
+
         </div>
-      </div>
-    )
+    );
   }
 }
 

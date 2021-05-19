@@ -61,7 +61,6 @@ class Login extends Component {
     const { fields } = this.state;
     return (
         <div>
-          <Navbar />
           <div className="form-signin login-form">
 
             <form onSubmit={(event) => this.handleSubmit(event)}>

@@ -73,7 +73,6 @@ class Signup extends Component {
     const { fields } = this.state;
     return (
         <div>
-          <Navbar />
           <div className="form-signin signup-form">
             <form onSubmit={(event) => this.handleSubmit(event)}>
 

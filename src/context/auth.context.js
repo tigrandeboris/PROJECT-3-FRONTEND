@@ -22,14 +22,14 @@ class AuthProvider extends React.Component{
     })
   }
 
-  // data serán los campos rellados del formulario de Signup
+
   signup = (data) => {
     this.authService.signup(data)
     .then(response => this.setState({ isLoggedIn: true, user: response.data }))
     .catch(() => this.setState({ isLoggedIn: false, user: null }))
   }
 
-  // data serán los campos rellados del formulario de Login
+
   login = (data) => {
     this.authService.login(data)
     .then(response => this.setState({ isLoggedIn: true, user: response.data }))
