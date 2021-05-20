@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import TaskService from '../../services/tasks.service';
+import './CreateTask.css'
 
 const validators = {
   name: (value) => {
@@ -67,11 +68,11 @@ export default class CreateTask extends Component {
     const { fields, errors } = this.state;
     return (
       <form onSubmit={(e) => this.handleSubmit(e)}>
-        <input type="text" value={fields.name} onChange={(e) => this.handleChange(e)} name="name" />
-        
-        <button type="submit">
-          Add task
-        </button>
+        <div className="input-group mb-3 task-input">
+          <input value={fields.name} onChange={(e) => this.handleChange(e)} name="name" type="text" className="form-control" placeholder="Task name" aria-label="Recipient's username"
+                 aria-describedby="button-addon2"/>
+          <button className="btn btn-dark" type="submit" id="button-addon2">Add Task</button>
+        </div>
       </form>
     )
   }

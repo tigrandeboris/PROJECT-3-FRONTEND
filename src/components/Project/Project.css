@@ -1,0 +1,17 @@
+.card {
+    width: 1000px;
+    margin: auto;
+}
+
+.project-name {
+    display: flex;
+    justify-content: space-between;
+}
+
+.project-name div {
+    font-size: 2rem;
+}
+
+.project-name button {
+   width: 150px;
+}

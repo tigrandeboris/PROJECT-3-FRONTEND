@@ -1,0 +1,48 @@
+.tasks-div {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: lightgrey solid 2px;
+}
+
+.task-name-div {
+    margin: 20px 100px 20px 20px;
+
+}
+
+.tasks-buttons-div {
+    margin: 20px 20px 20px 20px;
+}
+
+.tasks-buttons-div button {
+    margin-left: 20px;
+}
+
+.fa-done {
+    color: #009975;
+    font-size: 25px;
+}
+
+.fa-not-done {
+    color: #f10628;
+    font-size: 25px;
+}
+
+.task-button {
+    border: none;
+    background-color: white;
+}
+
+.h-priority {
+    color: #efef17;
+    font-size: 25px;
+}
+
+.l-priority {
+    color: black;
+    font-size: 25px;
+}
+
+.fa-delete {
+    color: #f10628;
+    font-size: 25px;
+}

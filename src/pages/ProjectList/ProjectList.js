@@ -33,7 +33,6 @@ class ProjectList extends Component {
     const {projects} = this.state;
     return (
         <div>
-          <button className='btn btn-danger' onClick={this.handleLogout}>Logout</button>
           <CreateProject refreshState={() => this.refreshState()} />
           <div id="accordion">
             {projects.map((project) => {

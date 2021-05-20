@@ -56,7 +56,6 @@ class AuthProvider extends React.Component{
 }
 
 
-// HOC - High Order Component that converts regular component into Consumer
 const withAuth = (WrappedComponent) => {
 
   return function(props){
@@ -66,7 +65,6 @@ const withAuth = (WrappedComponent) => {
           (value) => {
             const { isLoading, isLoggedIn, user, signup, login, logout } = value;
 
-            // Pasamos las props propias del contexto y además las props que ya recibiera el componente previamente via {...props}
             return (
               <WrappedComponent
                 isLoggedIn={isLoggedIn}

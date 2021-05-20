@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ProjectService from '../../services/projects.service';
+import './CreateProject.css'
 
 const validators = {
   name: (value) => {
@@ -64,13 +65,15 @@ export default class CreateProject extends Component {
   render() {
     const { fields, errors } = this.state;
     return (
-      <form onSubmit={(e) => this.handleSubmit(e)}>
-        <input type="text" value={fields.name} onChange={(e) => this.handleChange(e)} name="name" />
-        
-        <button type="submit">
-          Add Project
-        </button>
-      </form>
+        <div className='add-project-input'>
+          <form  onSubmit={(e) => this.handleSubmit(e)}>
+            <div className="input-group mb-3">
+              <input value={fields.name} onChange={(e) => this.handleChange(e)} name="name" type="text" className="form-control" placeholder="Project name" aria-label="Recipient's username"
+                     aria-describedby="button-addon2"/>
+              <button className="btn btn-dark" type="submit" id="button-addon2">Add Project</button>
+            </div>
+          </form>
+        </div>
     )
   }
 }

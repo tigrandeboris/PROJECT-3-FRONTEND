@@ -1,5 +1,6 @@
 import React from 'react'
 import TaskService from '../../services/tasks.service'
+import './Task.css'
 
 export default class Task extends React.Component{
   taskService = new TaskService();
@@ -43,12 +44,15 @@ export default class Task extends React.Component{
 
   render() {
     return (
-        <div>
-          <div>{this.props.name}</div>
-          <button onClick={() => this.markAsDone()}>{this.props.done ? "DONE" : "NOT DONE"}</button>
-
-          <button onClick={() => this.togglePriority()}>{this.props.priority ? "Marc as high priority" : "Marc as low priority"}</button>
-          <button onClick={() => this.deleteTask()}>Delete</button>
+        <div className='tasks-div'>
+          <div className='task-name-div'>
+            <div>{this.props.name}</div>
+          </div>
+          <div className='tasks-buttons-div'>
+            <button className='task-button' onClick={() => this.markAsDone()}>{this.props.done ? <i className="fas fa-check-square fa-done"></i>  : <i className="fas fa-check-square fa-not-done"></i>}</button>
+            <button className='task-button' onClick={() => this.togglePriority()}>{this.props.priority ? <i className="fas fa-star h-priority"></i> : <i className="fas fa-star l-priority"></i>}</button>
+            <button className='task-button' onClick={() => this.deleteTask()}><i className="fas fa-times fa-delete"></i></button>
+          </div>
         </div>
     )
   }

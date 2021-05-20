@@ -6,14 +6,12 @@ import Login from './pages/Login/Login';
 import Signup from './pages/Signup/Signup';
 import ProjectList from './pages/ProjectList/ProjectList';
 import Navbar from './components/Navbar/Navbar';
-import {AuthProvider} from './context/auth.context';
+
 
 function App() {
   return (
     <div>
-        <AuthProvider>
             <Navbar />
-        </AuthProvider>
 
       <Switch>
         <Route exact path="/" component={Home} />

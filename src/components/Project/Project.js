@@ -1,8 +1,8 @@
 import React from 'react'
+import './Project.css'
 import ProjectService from '../../services/projects.service';
 import Task from '../Task/Task';
 import TaskService from '../../services/tasks.service';
-import CreateProject from '../CreateProject/CreateProject';
 import CreateTask from '../CreateTask/CreateTask';
 
 export default class Project extends React.Component{
@@ -52,11 +52,13 @@ export default class Project extends React.Component{
   render() {
     return (
         <div className="card">
-          <div className="card-header" data-toggle="collapse" data-target={'#project' + this.state.id} onClick={() => this.getProjectDetails()} >
+          <div className="card-header project-name" data-toggle="collapse" data-target={'#project' + this.state.id} onClick={() => this.getProjectDetails()} >
               <div className="card-title">
                   {this.state.name}
               </div>
-            <button onClick={() => this.deleteProject()}>Delete</button>
+              <div>
+                  <button className='btn btn-danger' onClick={() => this.deleteProject()}>Delete Project</button>
+              </div>
           </div>
             <div className="collapse" id={'project' + this.state.id} data-parent="#accordion">
                 <div className="card-body">
@@ -67,7 +69,6 @@ export default class Project extends React.Component{
                         );
                     })}
                     <CreateTask project_id={this.state.id} refreshState={() => this.refreshState()} />
-
                 </div>
             </div>
 

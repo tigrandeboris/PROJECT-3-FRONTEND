@@ -13,8 +13,8 @@ class Home extends React.Component{
                     </div>
                     <div className='home-page-info'>
                         <h1>Organize your projects with Project Manager!</h1>
-                        <button type="button" className="btn btn-dark home-page-button">Login</button>
-                        <button type="button" className="btn btn-dark home-page-button">Signup</button>
+                        <Link to='/login'><button type="button" className="btn btn-dark home-page-button">Login</button></Link>
+                        <Link to='/signup'><button type="button" className="btn btn-dark home-page-button">Signup</button></Link>
                     </div>
                 </div>
             </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import './Navbar.css';
+import {withAuth} from '../../context/auth.context';
 
 class Navbar extends React.Component {
 
@@ -8,6 +9,7 @@ class Navbar extends React.Component {
     }
 
     render() {
+        console.log(this.props)
         return (
             <nav className="navbar navbar-dark bg-dark">
                 <div className="nav-name"><a href="/">Project Manager</a></div>
@@ -19,7 +21,10 @@ class Navbar extends React.Component {
                         </div>
                     }
                     {this.props.isLoggedIn &&
-                    <button className='btn btn-danger' onClick={this.handleLogout}>Logout</button>
+                        <div>
+                            <a className="login-nav" href="/projects">Projects Profile</a>
+                            <button className='btn btn-light' onClick={this.handleLogout}>Logout</button>
+                        </div>
                     }
                 </div>
             </nav>
@@ -27,4 +32,4 @@ class Navbar extends React.Component {
     }
 }
 
-export default Navbar;
+export default withAuth(Navbar);
