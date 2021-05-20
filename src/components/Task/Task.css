@@ -42,7 +42,13 @@
     font-size: 25px;
 }
 
+.edit-icon {
+    color: black;
+    font-size: 25px;
+}
+
 .fa-delete {
     color: #f10628;
     font-size: 25px;
 }
+

@@ -28,7 +28,22 @@ export default class Project extends React.Component{
       this.refreshState();
   }
 
-  deleteProject(){
+  editName(event) {
+    event.stopPropagation();
+    const name = prompt('Change Project Name', this.state.name);
+    if (!name) {
+        return;
+    }
+    this.projectService.updateOne(this.props.id, {name: name})
+        .then(() => {
+        console.log('Edited');
+        this.refreshState();
+    })
+    .catch(err => console.error(err))
+  }
+
+  deleteProject(event){
+    event.stopPropagation()
     this.projectService.deleteOne(this.props.id)
       .then(() => {
         console.log('Deleted');
@@ -59,7 +74,8 @@ export default class Project extends React.Component{
                         {this.state.name}
                     </div>
                     <div>
-                        <button className='btn btn-danger' onClick={() => this.deleteProject()}>Delete Project</button>
+                        <button className="btn btn-dark" onClick={(event) => this.editName(event)}>Edit</button>
+                        <button className='btn btn-danger' onClick={(event) => this.deleteProject(event)}>Delete</button>
                     </div>
                 </div>
                 <div className="collapse" id={'project' + this.state.id} data-parent="#accordion">

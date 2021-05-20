@@ -17,7 +17,8 @@ export default class CreateProject extends Component {
     this.state = {
       fields: {
         name: ""
-      }, 
+      },
+      adding: false,
       errors: {
         name: null
       }
@@ -37,7 +38,8 @@ export default class CreateProject extends Component {
       this.setState({
         fields: {
           name: ""
-        }, 
+        },
+        adding: false,
         errors: {
           name: null
         }
@@ -62,19 +64,35 @@ export default class CreateProject extends Component {
     })
   }
 
+  handleAdd() {
+    this.setState({
+      fields: {
+        ...this.state.fields
+      },
+      adding: true
+    })
+  }
+
   render() {
     const { fields, errors } = this.state;
     return (
         <div className='project-list-page'>
           <div className='add-project-input'>
 
-            <form  onSubmit={(e) => this.handleSubmit(e)}>
-              <div className="input-group mb-3">
-                <input value={fields.name} onChange={(e) => this.handleChange(e)} name="name" type="text" className="form-control" placeholder="Project name" aria-label="Recipient's username"
-                       aria-describedby="button-addon2"/>
-                <button className="btn btn-dark" type="submit" id="button-addon2">Create Project</button>
-              </div>
-            </form>
+            {
+                this.state.adding &&
+                   <form  onSubmit={(e) => this.handleSubmit(e)}>
+                          <div className="input-group mb-3">
+                          <input value={fields.name} onChange={(e) => this.handleChange(e)} name="name" type="text" className="form-control" placeholder="Project name" aria-label="Recipient's username"
+                          aria-describedby="button-addon2"/>
+                          <button className="btn btn-dark create-project-button" type="submit" id="button-addon2">Create</button>
+                          </div>
+                        </form>
+            }
+            {
+              !this.state.adding && <button className="btn btn-dark new-project-button" onClick={() => this.handleAdd()}>Create New Project</button>
+            }
+
           </div>
         </div>
 

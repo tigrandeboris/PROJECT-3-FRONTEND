@@ -3,6 +3,9 @@
 }
 .add-project-input {
     width: 700px;
-    margin: 50px auto auto;
+    margin: 0 auto auto;
 }
 
+.new-project-button {
+    margin: 20px 20px 20px 0;
+}
