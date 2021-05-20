@@ -65,15 +65,19 @@ export default class CreateProject extends Component {
   render() {
     const { fields, errors } = this.state;
     return (
-        <div className='add-project-input'>
-          <form  onSubmit={(e) => this.handleSubmit(e)}>
-            <div className="input-group mb-3">
-              <input value={fields.name} onChange={(e) => this.handleChange(e)} name="name" type="text" className="form-control" placeholder="Project name" aria-label="Recipient's username"
-                     aria-describedby="button-addon2"/>
-              <button className="btn btn-dark" type="submit" id="button-addon2">Add Project</button>
-            </div>
-          </form>
+        <div className='project-list-page'>
+          <div className='add-project-input'>
+
+            <form  onSubmit={(e) => this.handleSubmit(e)}>
+              <div className="input-group mb-3">
+                <input value={fields.name} onChange={(e) => this.handleChange(e)} name="name" type="text" className="form-control" placeholder="Project name" aria-label="Recipient's username"
+                       aria-describedby="button-addon2"/>
+                <button className="btn btn-dark" type="submit" id="button-addon2">Create Project</button>
+              </div>
+            </form>
+          </div>
         </div>
+
     )
   }
 }

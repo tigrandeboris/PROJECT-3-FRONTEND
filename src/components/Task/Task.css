@@ -6,7 +6,7 @@
 
 .task-name-div {
     margin: 20px 100px 20px 20px;
-
+    font-size: 20px;
 }
 
 .tasks-buttons-div {
@@ -14,7 +14,7 @@
 }
 
 .tasks-buttons-div button {
-    margin-left: 20px;
+    margin-left: 30px;
 }
 
 .fa-done {
@@ -23,7 +23,7 @@
 }
 
 .fa-not-done {
-    color: #f10628;
+    color: black;
     font-size: 25px;
 }
 

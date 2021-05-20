@@ -5,6 +5,7 @@ import Task from '../Task/Task';
 import TaskService from '../../services/tasks.service';
 import CreateTask from '../CreateTask/CreateTask';
 
+
 export default class Project extends React.Component{
   projectService = new ProjectService();
   taskService = new TaskService();
@@ -51,28 +52,30 @@ export default class Project extends React.Component{
 
   render() {
     return (
-        <div className="card">
-          <div className="card-header project-name" data-toggle="collapse" data-target={'#project' + this.state.id} onClick={() => this.getProjectDetails()} >
-              <div className="card-title">
-                  {this.state.name}
-              </div>
-              <div>
-                  <button className='btn btn-danger' onClick={() => this.deleteProject()}>Delete Project</button>
-              </div>
-          </div>
-            <div className="collapse" id={'project' + this.state.id} data-parent="#accordion">
-                <div className="card-body">
-                    {this.state.tasks.map((task) => {
-                        task.refreshState = () => this.refreshState();
-                        return (
-                            <Task {...task} key={task.id} />
-                        );
-                    })}
-                    <CreateTask project_id={this.state.id} refreshState={() => this.refreshState()} />
+        <div>
+            <div className="card">
+                <div className="card-header project-name" data-toggle="collapse" data-target={'#project' + this.state.id} onClick={() => this.getProjectDetails()} >
+                    <div className="card-title">
+                        {this.state.name}
+                    </div>
+                    <div>
+                        <button className='btn btn-danger' onClick={() => this.deleteProject()}>Delete Project</button>
+                    </div>
+                </div>
+                <div className="collapse" id={'project' + this.state.id} data-parent="#accordion">
+                    <div className="card-body">
+                        {this.state.tasks.map((task) => {
+                            task.refreshState = () => this.refreshState();
+                            return (
+                                <Task {...task} key={task.id} />
+                            );
+                        })}
+                        <CreateTask project_id={this.state.id} refreshState={() => this.refreshState()} />
+                    </div>
                 </div>
             </div>
-
         </div>
+
     )
   }
 }

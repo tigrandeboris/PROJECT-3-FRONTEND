@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { withAuth } from '../../context/auth.context';
 import './login.css';
-import Navbar from '../../components/Navbar/Navbar';
+
+
 
 const validators = {
   username: (value) => {
